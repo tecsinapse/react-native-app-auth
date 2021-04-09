@@ -299,7 +299,7 @@ export const revoke = async (
   return await fetch(revocationEndpoint, {
     method: 'POST',
     headers,
-    body: `token=${tokenToRevoke}${sendClientId ? `&client_id=${clientId}` : ''}`,
+    body: `refresh_token=${tokenToRevoke}${sendClientId ? `&client_id=${clientId}` : ''}`,
   }).catch(error => {
     throw new Error('Failed to revoke token', error);
   });
